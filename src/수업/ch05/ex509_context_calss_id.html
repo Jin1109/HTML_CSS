@@ -1,0 +1,42 @@
+<!--  ex509_context_calss_id.html -->
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>가상클래스(pseudo class) 선택자 - ':' 기호르 사용하는 선택자</title>
+	<!-- 
+		 가상 클래스는 콜론(:)뒤엣 요소를 선택할 수 있는 특별한 상태를 표현하는
+		 예약어가 따릅니다.
+		 a:link는 하이퍼링크 요소에 대한 링크를 의미(방문하지 않은 링크 스타일)
+		 a:vistied는 방문한 링크의 경우를 의미합니다.
+		 ::after는 선택된 요소의 뒤에 지정한 콘텐츠를 추가합니다.
+	 -->
+	 <style>
+	 	a{text-decoration: none}
+	 	p { font-size:10pt }
+	 	p::first-line{background-color:#ccc}
+	 	h3::after { content: " (ⓒcss)"; font-size: 10pt } /* h3요소의 뒤에 (ⓒcss) 삽입 */ 
+	 	.italic{font-style: italic }
+	 	#red { color : red }				  
+	 	#blue { color : blue }
+	 </style>
+</head>
+<body>
+	<h3>
+		<strong class="italic">스타일시트</strong> 이해하기
+	</h3>
+	
+	<p class="italic">이 예제는 
+ 	  <span>
+ 	  	<strong id ="red">CSS</strong>의 개념
+	  </span>을 설명합니다.
+	  <br>	
+	  <a href="http://www.w3.org">selector</a>와
+	  <a href="http://www.daum.net">조합</a>으로 스타일을 지젛합니다. 
+	</p>
+	
+	<p>다음
+		<strong id="blue">CCS 속성</strong> 예제로 이어집니다. <br>
+	</p>	
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>위치/크기 지정 속성</title>
+<style>
+	div{
+		width : 100px;
+		height : 100px;
+	}
+
+	#box1 {
+	position : absolute; /* 절대위치 - 원하는 위치에 배치 */
+	left : 30px; /* 부모 요소의 왼쪽에서 30px 간격 */
+	top: 50px;	/* 부모 요소의 위쪽에서 50px 간격 */
+	background-color: red; 
+	z-index:10;
+	}
+	
+	#box2{
+	position : absolute;
+	left : 55px; /* 수평 좌표 */
+	top : 75px;		/* 수직 좌표 */
+	background-color: blue;
+	}
+</style>
+</head>
+<body>
+	<div id=box1></div>
+	<div id=box2></div>
+</body>
+</html>

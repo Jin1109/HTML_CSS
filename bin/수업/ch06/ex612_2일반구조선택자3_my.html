@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>CSS Selector</title>
+<Style>
+   li{
+      width: 100px;
+      height: 80px;
+      float:left;
+      text-align: center;
+      line-height: 80px;
+      list-style : none;
+      
+   }
+   
+   li:nth-child(n){
+      background-color: brown;   
+   }
+   li:nth-child(2n){
+      background-color: red;   
+   }
+   li:nth-child(1){
+      border-radius: 20% 0% 0% 20%
+   }
+   
+   li:nth-child(7){
+      border-radius: 0% 20% 20% 0%
+   }
+   p { 
+   	float:left;
+   	}
+   	
+   
+   
+</Style>
+</head>
+<body>
+    <ul>
+        <li>first</li>
+        <li>Second</li>
+        <li>Third</li>
+        <li>Fourth</li>
+        <li>Fifth</li>
+        <li>Sixth</li>
+        <li>Seventh</li>
+    </ul>
+    <p>나는 꿈툴이입니다.</p>
+</body>
+
+</html>

@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<!-- 문서 형식 선언 html -->
+<html>
+<!-- html를 작성하는 형식 영역 -->
+<head>
+<!-- 타이틀과 메타데이터 stlyle 등을 포함하는 영역 -->
+<style>
+/*  문서나 문서 일부에 대한 스타일 정보를 포함합니다. */
+body {font-family: Arial, Helvetica, sans-serif;}		 
+/* 
+body{} : body 영역부분
+font-family : 글꼴을 설정하는 속성 
+*/
+form {border: 3px solid #f1f1f1;}						 
+/* form : 웹 페이지에서의 입력 양식 */
+/* border : 요소의 테두리를 설정 
+   
+   border-style 속성
+	- dotted : 테두리를 점선으로 설정함.
+	- dashed : 테두리를 약간 긴 점선으로 설정함.
+	- solid : 테두리를 실선으로 설정함.
+	- double : 테두리를 이중 실선으로 설정함.
+	- groove : 테두리를 3차원인 입체적인 선으로 설정하며, border-color 속성값에 영향을 받음.
+	- ridge : 테두리를 3차원인 능선효과가 있는 선으로 설정하며, border-color 속성값에 영향을 받음.
+	- inset : 테두리를 3차원인 내지로 끼운 선으로 설정하며, border-color 속성값에 영향을 받음.
+	- outset : 테두리를 3차원인 외지로 끼운 선으로 설정하며, border-color 속성값에 영향을 받음.
+	- none : 테두리를 없앰.
+	- hidden : 테두리가 존재하기는 하지만 표현되지는 않음.
+*/ 
+
+/* 개첵등의 크기에 사용한는 단위 
+px : pixel, 표시장치(모니터)에 따라서 상대적인 크기를 갖습니다.
+em : font-size, 일반적으로 해당 폰트의 대문자 M의 너비를 기준으로 합니다.
+ex : x-height, 해당 폰트의 소문자 x의 높이를 기준으로 합니다.
+% : 브라우저 기본 글꼴 크기를 100% 하고 상대적 크기를 나타냅니다
+*/
+
+input[type=text], input[type=password] {
+/* 입력 형식을 구현하기 위한 태그*/
+/* type=text 텍스트를 입력하는 창을 생성*/
+/* type=password 비밀번호를 입력하는 창을 생성*/				 
+  width: 100%;				
+  /* width  객체의 너비값을 명시한다. */	 
+  padding: 12px 20px;
+  /* 요소의 네 방향 안쪽 여백 영역을 설정
+  	  top, right, bottom, left 순으로 설정
+  	  한 개의 값은 모든 네 면의 여백을 설정합니다.
+	  두 개의 값을 지정하면 첫 번째는 위와 아래, 두 번째는 왼쪽과 오른쪽 여백을 설정합니다.
+	  세 개의 값을 지정하면 첫 번째는 위, 두 번째는 왼쪽과 오른쪽, 세 번째 값은 아래 여백을 설정합니다.
+	  네 개의 값을 지정하면 각각 상, 우, 하, 좌 순서로 여백을 지정합니다. (시계방향)
+  */
+  margin: 8px 0;
+  /* 요소의 네 방향 바깥 여백 영역을 설정
+  	  top, right, bottom, left 순으로 설정
+  	  한 개의 값은 모든 네 면의 여백을 설정합니다.
+	  두 개의 값을 지정하면 첫 번째는 위와 아래, 두 번째는 왼쪽과 오른쪽 여백을 설정합니다.
+	  세 개의 값을 지정하면 첫 번째는 위, 두 번째는 왼쪽과 오른쪽, 세 번째 값은 아래 여백을 설정합니다.
+	  네 개의 값을 지정하면 각각 상, 우, 하, 좌 순서로 여백을 지정합니다. (시계방향)  	    
+  */
+  display: inline-block;
+  /* display : 웹 페이지의 레이아웃(layout)을 결정하는 속성
+  	 
+  	 속성의 종류
+  	 none : 화면에서 사라집니다.
+	 block :  가로 한 줄을 다 차지하게 됩니다.
+	 inline : 컨텐츠를 딱 감쌀정도의 크기만 갖게됩니다
+     inline-block : inline과 block의 특성을 합쳐놓은 속성입니다.
+ 	 */
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  /* box-sizing은 박스의 크기를 어떤 것을 기준으로 계산할지를 정하는 속성입니다. 
+  	 content-box : 콘텐트 영역을 기준으로 크기를 정합니다.
+	 border-box : 테두리를 기준으로 크기를 정합니다.
+	 initial : 기본값으로 설정합니다.
+	 inherit : 부모 요소의 속성값을 상속받습니다.*/
+}
+ 
+button {
+  background-color: #04AA6D;
+ /* background : 배경을 지정하는 속성 
+ 
+ 	속성
+ 	background-attachment : 배경 이미지를 뷰포트 내에서 고정할지, 아니면 자신의 컨테이닝 블록과 함께 스크롤할지 지정
+ 	background-clip : 요소의 배경이 테두리, 안쪽 여백, 콘텐츠 상자 중 어디까지 차지할 지 지정
+	background-color : 요소의 배경 색을 지정
+	background-image : 요소의 배경 이미지를 한 개나 여러 개 지정
+	background-origin : 배경의 원점을 테두리 시작점, 테두리 내부, 안쪽 여백 내부 중 하나로 지정
+	background-position : 각 배경 이미지의 초기 위치를 설정합니다. 위치는 배경 원점으로 설정된 위치 레이어에 상대적
+	background-repeat : 배경 이미지의 반복 방법을 지정
+	background-size : 배경 이미지 크기 조절  */  
+	
+  color: white;
+  /* 요소의 글씨의 색을 설정 */
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  /* 요소 위에 마우스 커서가 올라갔을 때 보여줄 모양을 지정 */ 
+  width: 100%;
+}
+
+button:hover {
+	/* :hover : 사용자가 포인팅 장치를 사용해 상호작용 중인 요소를 선택 
+				커서(마우스 포인터)가 요소 위에 올라가 있으면 선택 */ 
+  opacity: 0.8;
+  /* 요소의 불투명도를 설정 
+     0.0 이상 1.0 이하의 <number>,
+     0% 이상 100% 이하의 <percentage> 값을 갖는다. ㄴ*/ 
+}
+
+.cancelbtn {
+  width: auto;
+  padding: 10px 18px;
+  background-color: #f44336;
+}
+
+.imgcontainer {
+  text-align: center;
+  margin: 24px 0 12px 0;
+}
+
+img.avatar {
+  width: 40%;
+  border-radius: 50%;
+  /* 요소 테두리 경계의 꼭짓점을 둥글게 만듭니다 
+     top-right-and-bottom-left 순으로 값을 지정할 수 있다.
+     백분율 값을 사용한다.*/
+}
+
+.container {
+  padding: 16px;
+}
+
+span.psw {
+/* span : 구문 콘텐츠를 위한 통용 인라인 컨테이너
+<span>은 <div>와 매우 유사하지만, <div>는 블록 레벨 요소인 반면 <span>은 인라인 요소입니다. */
+  float: right;
+  /* 한 요소(element)가 보통 흐름(normal flow)으로부터 빠져 텍스트 및 인라인(inline) 요소가 
+  그 주위를 감싸는 자기 컨테이너의 좌우측을 따라 배치되어야 함을 지정 
+  
+  	float: left; 			요소가 자신의 포함(containing) 블록의 좌측에 부동(float, 떠움직여)해야 함
+  	float: right;			요소가 자신의 포함 블록의 우측에 부동해야 함을 나타내는 키워드
+	float: none;			요소가 부동하지 않아야 함을 나타내는 키워드
+	float: inline-start;	소가 자신의 포함 블록의 시작쪽에 부동해야 함을 나타내는 키워드
+	float: inline-end; 		요소가 자신의 포함 블록의 끝쪽에 부동해야 함을 나타내는 키워드 */
+	
+  padding-top: 16px;
+}
+
+@keyframes animatezoom {
+		/*
+		애니메이션 도중의 주요 장면을 중간 상태에 해당하는 키프레임으로 설정하고 난후
+	 	원하는 객체에 이미 작성된 키프레임을 애니메이션으로 지정하면 된다.
+	 	키프레임의 설정은 @keyframes 규칙으로 작성하며 진행비율을 %나 from 및 to로 지정한다.
+		*/
+  from {transform: scale(0)} 
+  to {transform: scale(1)}
+}
+
+body {
+  animation: animatezoom 0.6s
+  /*
+  animation-name : 애니메이션의 중간 상태를 지정하기 위한 이름을 정의합니다. 중간 상태는 @keyframes 규칙을 이용하여 기술합니다.
+  animation-duration : 한 싸이클의 애니메이션이 얼마에 걸쳐 일어날지 지정합니다.
+  animation-delay :엘리먼트가 로드되고 나서 언제 애니메이션이 시작될지 지정합니다.
+  animation-direction : 애니메이션이 종료되고 다시 처음부터 시작할지 역방향으로 진행할지 지정합니다.
+  animation-iteration-count : 애니메이션이 몇 번 반복될지 지정합니다. infinite 로 지정하여 무한히 반복할 수 있습니다.
+  animation-play-state : 애니메이션을 멈추거나 다시 시작할 수 있습니다.
+  animation-timing-function : 중간 상태들의 전환을 어떤 시간간격으로 진행할지 지정합니다.
+  animation-fill-mode : 애니메이션  이 시작되기 전이나 끝나고 난 후 어떤 값이 적용될지 지정합니다.
+  */
+}
+
+</style>
+</head>
+<body>
+<!-- HTML 문서의 내용을 나타냅니다 -->
+
+<h2>Login Form</h2>
+<!-- <h1>–<h6> 요소는 6단계의 구획 제목을 나타냅니다. 구획 단계는 <h1>이 가장 높고 <h6>은 가장 낮습니다. -->
+
+<form action="action_page.html" method="post">
+<!--   <form> 태그는 사용자로부터 입력을 받을 수 있는 HTLM 입력 폼(form)을 정의할 때 사용합니다.
+	
+	속성명	 			속성값								설명
+	accept				file				파일을 업로드 컨트롤에서 기대하는 파일 유형을 암시
+	alt					image				이미지 유형에 대한 대체 속성. accessibiltiy 측면에서 필요.
+	autocomplete		all					양식 자동생성 기능 (form autofill) 암시
+	autofocus			all					페이지가 로딩될때 양식 제어에 오토포커스
+	capture				file				파일 업로드 제어에서 input 방식에서 미디어 capture 
+	checked				radio, checkbox		커맨드나 컨트롤이 체크 되었는지의 여부
+	dirname				text, search		양식 전송시 요소의 방향성을 전송할 때 양식 필드의 Name
+	disabled			all					양식 컨트롤이 비활성화되었는지의 여부
+	form				all					컨트롤을 양식 요소와 연결
+	formaction			image, submit		양식 전송시 URL 사용하기
+	formenctype			image, submit		양식의 데이터 인코딩 유형이 양식 전송시 사용될 것
+	formmethod			image, submit		양식 전송시 HTTP 방식을 사용
+	formnovalidate		image, submit		양식 전송시 양식 컨트롤 확인을 무시하기
+	formtarget			image, submit		양식 전송시 브라우징 맥락
+	height				image				이미지 높이에서  height 속성과 같음
+	list				almost all			datalist자동입력 옵션의 id 속성값
+	max					numeric types		최대값
+	
+	maxlength			password, search,	value의 최대 길이 (문자수) 
+						tel, text, url	 
+	min					numeric types		최소값
+	
+	minlength			password, search, 
+						tel, text, url		value의 최소 길이 (문자수)
+	
+	multiple			email, file			불리언값. 여러 값을 허용할지의 여부
+	name				all	input 			양식 컨트롤의 이름. 이름/값 짝(name/value pair)의 일부로서 양식과 함께 전송된다
+	
+	pattern				password, text, tel	value 가 유효하기 위해 일치해야 하는 패턴
+	placeholder			password, search,	양식 컨트롤이 비어있는 때 양식 컨트롤에 나타나는 내용 
+						tel, text, url	
+						
+	readonly			almost all			불리언값. 이 값은 수정이 불가능함
+	required			almost all			불리언값. 양식이 전송되기 위해서 반드시 입력하거나 확인이 필요한 값
+
+	size				email, password,	컨트롤의 크기 
+						tel, text	
+						
+	src					image				이미지 출처의 주소에서 src 와 같은 속성
+	step				numeric types		유효한 증분적인 (Incremental)값
+	type				all	input 			양식 컨트롤의 유형
+	value				all					양식 컨트롤의 현재 값. 이름/값 짝(name/value pair)의 일부로서 양식과 함께 전송된다
+	width				image				이미지의  width 속성과 같다
+ -->
+  <div class="imgcontainer">
+  <!-- <div> 요소는 플로우 콘텐츠를 위한 통용 컨테이너입니다. 
+  		id : '유일'한 요소에 스타일을 적용class : '복수'의 요소에 스타일을 적용
+	-->
+    <img src="img_avatar2.png" alt="Avatar" class="avatar">
+    <!-- <img> 요소는 문서에 이미지를 넣습니다. -->
+    <!--  alt 이미지의 대체 텍스트 설명. -->
+  </div>
+
+  <div class="container">
+    <label for="uname"><b>Username</b></label>
+    <!-- <label> 요소는 사용자 인터페이스 항목의 설명을 나타냅니다. -->
+    <!-- <b> 굵은 글씨 요소 -->
+    <input type="text" placeholder="Enter Username" name="uname" required>
+    <!-- <input> 요소는 웹 기반 양식에서 사용자의 데이터를 받을 수 있는 대화형 컨트롤을 생성합니다 -->
+    <!--  
+		button : 기본 행동을 가지지 않으며 value을 레이블로 사용하는 푸시 버튼.	
+		checkbox : 단일 값을 선택하거나 선택 해제할 수 있는 체크박스.	
+		color : 색을 지정할 수 있는 컨트롤. 브라우저가 지원하는 경우, 활성화 시 색상 선택기를 열어줍니다.	
+		date : 날짜(연월일, 시간 없음)를 지정할 수 있는 컨트롤. 브라우저가 지원하는 경우, 활성화 시 날짜를 선택할 수 있는 달력 등을 열어줍니다.	
+		datetime-local : 날짜와 시간을 지정할 수 있는 컨트롤. 시간대는 지정할 수 없습니다. 브라우저가 지원하는 경우, 활성화 시 날짜를 선택할 수 있는 달력과, 시계 등을 열어줍니다.	
+		email : 이메일 주소를 편집할 수 있는 필드. 텍스트 입력 필드처럼 보이지만 유효성 검증 매개변수가 존재하며, 브라우저와 장치가 동적 키보드를 지원하는 경우 이메일에 적합한 키보드를 보여줍니다.	
+		file : 파일을 지정할 수 있는 컨트롤. accept 특성을 사용하면 허용하는 파일 유형을 지정할 수 있습니다.	
+		hidden : 보이지 않지만 값은 서버로 전송하는 컨트롤. 오른쪽 칸에 예제가 있지만 숨겨져서 안보이네요!	
+		image : src 특성에 지정한 이미지로 나타나는 시각적 제출 버튼. 이미지의 src를 누락한 경우 alt 특성의 텍스트를 대신 보여줍니다.	
+		month : 연과 월을 지정할 수 있는 컨트롤. 시간대는 지정할 수 없습니다.	
+		number : 숫자를 입력하기 위한 컨트롤. 스피너를 표시하고 지원되는 기본 확인을 추가합니다. 몇몇 장치에서는 동적 키패드들과 숫자 키패드를 표시합니다.
+		password : 값이 가려진 한줄 텍스트 필드. 사이트가 안전하지 않으면 사용자에게 경고합니다.
+		radio : 같은 name 값을 가진 여러개의 선택중에서 하나의 값을 선택하게 하는 라디오 버튼입니다.
+		range : 값이 가려진 숫자를 입력하는 컨트롤. 디폴트 값이 중간값인 범위 위젯으로 표시합니다. 접속사 min 와 max 사이에 사용되며 수용가능한 값의 범위를 정의합니다.
+		reset : 양식의 내용을 디폴트값(기본값)으로 초기화하는 버튼. 권장되지 않습니다.	
+		search : 검색문자열을 입력하는 한줄 텍스트 필드. 줄바꿈 문자는 입력값에서 자동으로 제거됩니다. 지원 브라우저에서 필드를 클리어하기 위해 사용되는 삭제 아이콘이 포함됩니다. 동적 키패드들이 있는 몇몇 장치에서 엔터키 대신에 검색 아이콘을 표시합니다.
+		submit : 양식을 전송하는 버튼	
+		tel : 전화번호를 입력하는 컨트롤. 몇몇 장치에서 동적 키패드들과 전화번호 입력기를 표시한다.	
+		text : 디폴트 값. 한줄의 텍스트 필드입니다. 새줄 문자는 입력값으로부터 자동으로 제거됩니다.
+		time : 시간대가 없는 시간값을 입력하는 콘트롤	
+		url : URL을 입력하는 필드. 텍스트 입력처럼 보이지만, 검증 매개변수가 있습니다. 동적 키보드들을 지원하는 브라우저와 장치들에 관련된 키보드가 있습니다.	
+		week : 시간대가 없는 주-년 값과 주의 값을 구성하는 날짜를 입력하는 컨트롤입니다. -->
+    <label for="psw"><b>Password</b></label>
+    <!-- <label for> : label 테그를 제어하여 상태를 변경하게 도와주는 태그이다. -->
+    <input type="password" placeholder="Enter Password" name="psw" required>
+        <!-- placeholder 속성은 입력 필드에 사용자가 적절한 값을 입력할 수 있도록 도와주는 짧은 도움말을 명시합니다. -->
+    <button type="submit">Login</button>
+    <label>
+      <input type="checkbox" checked="checked" name="remember"> Remember me
+    </label>
+  </div>
+
+  <div class="container" style="background-color:#f1f1f1">
+    <button type="button" class="cancelbtn">Cancel</button>
+    <span class="psw">Forgot <a href="#">password?</a></span>
+    <!-- <a> 태그의 href 속성은 링크된 페이지의 URL을 명시합니다. 
+		 <a href=“URL”> 
+		 href="#" 으로 하면 이벤트가 발생하기전 화면 최상단으로 이동한 후 이벤트가 수행되지만
+		 href="#;" 으로 하면 최상단으로의 이동없이 이벤트가 수행된다.-->
+  </div>
+</form>
+
+</body>
+</html>
